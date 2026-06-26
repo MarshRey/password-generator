@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import Analytics from '@vercel/analytics/astro';
 
 export interface Props {
   title: string;
@@ -113,6 +114,8 @@ const jsonLdScripts = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
     <main class="flex-1">
       <slot />
     </main>
+
+    <Analytics />
 
     <footer class="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

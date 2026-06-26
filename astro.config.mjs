@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://passwordgenerator.example.com',
+  site: 'https://passgensecure.com',
   output: 'static',
   integrations: [sitemap(), tailwind()],
 });
