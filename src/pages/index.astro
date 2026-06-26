@@ -41,12 +41,12 @@ const jsonLd = {
 ---
 
 <Layout title={title} description={description} jsonLd={jsonLd}>
-  <section class="bg-gradient-to-b from-primary-50 to-white py-16 sm:py-24">
+  <section class="bg-gradient-to-b from-primary-50 to-white py-16 sm:py-24 dark:from-primary-950/30 dark:to-slate-950">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">
         Free Password Generator
       </h1>
-      <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
+      <p class="mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
         Create strong, random, and secure passwords in seconds. No tracking, no sign-up, and no data sent to our servers.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -58,7 +58,7 @@ const jsonLd = {
         </a>
         <a
           href="/about/"
-          class="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-primary-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50 transition-colors"
+          class="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-primary-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50 transition-colors dark:bg-slate-900 dark:text-primary-400 dark:ring-slate-700 dark:hover:bg-slate-800"
         >
           Learn More
         </a>
@@ -77,12 +77,12 @@ const jsonLd = {
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {
           features.map((feature) => (
-            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div class="mb-4 inline-flex items-center justify-center rounded-lg bg-primary-100 p-3 text-primary-700">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow dark:border-slate-800 dark:bg-slate-900">
+              <div class="mb-4 inline-flex items-center justify-center rounded-lg bg-primary-100 p-3 text-primary-700 dark:bg-primary-900/40 dark:text-primary-400">
                 <feature.icon size={24} />
               </div>
-              <h3 class="text-lg font-semibold text-slate-900">{feature.title}</h3>
-              <p class="mt-2 text-slate-600">{feature.description}</p>
+              <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">{feature.title}</h3>
+              <p class="mt-2 text-slate-600 dark:text-slate-400">{feature.description}</p>
             </div>
           ))
         }
@@ -90,10 +90,54 @@ const jsonLd = {
     </div>
   </section>
 
-  <section class="border-t border-slate-200 bg-slate-50 py-16">
+  <section class="border-t border-slate-200 bg-slate-50 py-16 dark:border-slate-800 dark:bg-slate-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100">Guides & resources</h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-400">Learn how to create, manage, and protect your passwords.</p>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <li>
+          <a href="/blog/how-to-create-a-strong-password/" class="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-300 transition-all dark:border-slate-800 dark:bg-slate-900 dark:hover:border-primary-700">
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">How to Create a Strong Password</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-400">A complete guide to building unbreakable credentials.</p>
+          </a>
+        </li>
+        <li>
+          <a href="/blog/password-manager-buying-guide/" class="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-300 transition-all dark:border-slate-800 dark:bg-slate-900 dark:hover:border-primary-700">
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Password Manager Buying Guide</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-400">Find the right manager for personal or business use.</p>
+          </a>
+        </li>
+        <li>
+          <a href="/blog/what-makes-a-password-secure/" class="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-300 transition-all dark:border-slate-800 dark:bg-slate-900 dark:hover:border-primary-700">
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">What Makes a Password Secure</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-400">Entropy, length, and randomness explained.</p>
+          </a>
+        </li>
+        <li>
+          <a href="/blog/common-password-mistakes/" class="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-300 transition-all dark:border-slate-800 dark:bg-slate-900 dark:hover:border-primary-700">
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Common Password Mistakes</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-400">Fix these habits before your next breach.</p>
+          </a>
+        </li>
+        <li>
+          <a href="/blog/password-vs-passphrase/" class="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-300 transition-all dark:border-slate-800 dark:bg-slate-900 dark:hover:border-primary-700">
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Password vs Passphrase</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-400">Choose the right credential for every account.</p>
+          </a>
+        </li>
+      </ul>
+      <div class="mt-8 text-center">
+        <a href="/blog/" class="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-primary-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50 transition-colors dark:bg-slate-900 dark:text-primary-400 dark:ring-slate-700 dark:hover:bg-slate-800">View all guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200 bg-white py-16 dark:border-slate-800 dark:bg-slate-950">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Never reuse a password again</h2>
-      <p class="mt-4 text-slate-600">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100">Never reuse a password again</h2>
+      <p class="mt-4 text-slate-600 dark:text-slate-400">
         Generate unique passwords for every account and store them safely with a trusted password manager.
       </p>
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -109,7 +153,7 @@ const jsonLd = {
           <AffiliateLink href="https://www.lastpass.com/" label="LastPass" />
         </div>
       </div>
-      <p class="mt-4 text-xs text-slate-500">Affiliate links — we may earn a commission at no extra cost to you.</p>
+      <p class="mt-4 text-xs text-slate-500 dark:text-slate-500">Affiliate links — we may earn a commission at no extra cost to you.</p>
     </div>
   </section>
 </Layout>

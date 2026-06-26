@@ -1,0 +1,71 @@
+---
+import ToolLayout from '../components/ToolLayout.astro';
+
+const title = 'Terms of Service — Password Generator';
+const description = 'Read the Terms of Service for using Password Generator. Free utility, no warranty, and user responsibilities.';
+const canonical = `${Astro.site?.toString().replace(/\/$/, '') ?? 'https://passwordgenerator.example.com'}/terms-of-service/`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: canonical,
+};
+---
+
+<ToolLayout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <div class="prose prose-slate max-w-none">
+    <p class="text-sm text-slate-500 dark:text-slate-500">Last updated: {new Date().toISOString().slice(0, 10)}</p>
+
+    <h2>Acceptance of terms</h2>
+    <p>
+      By accessing or using Password Generator (“the Service”), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Service.
+    </p>
+
+    <h2>Description of service</h2>
+    <p>
+      Password Generator is a free online utility that helps users create strong, random, and secure passwords. The Service runs entirely in your browser and does not require an account.
+    </p>
+
+    <h2>No warranties</h2>
+    <p>
+      The Service is provided “as is” and “as available” without any warranties of any kind, either express or implied. We do not guarantee that the Service will be error-free, secure, or suitable for any particular purpose.
+    </p>
+
+    <h2>No storage guarantee</h2>
+    <p>
+      Passwords are generated locally in your browser and are not stored by us. You are solely responsible for copying, saving, and securing any password you generate. We are not liable for lost or forgotten passwords.
+    </p>
+
+    <h2>Acceptable use</h2>
+    <p>
+      You agree not to use the Service for any unlawful purpose, to interfere with its operation, or to attempt to gain unauthorized access to any part of the Service.
+    </p>
+
+    <h2>Intellectual property</h2>
+    <p>
+      All content, design, and code on this site are the property of Password Generator unless otherwise noted. You may not reproduce, distribute, or create derivative works without our prior written consent.
+    </p>
+
+    <h2>Third-party links</h2>
+    <p>
+      The Service may contain links to third-party websites, including affiliate links to password managers. We are not responsible for the content or practices of those websites.
+    </p>
+
+    <h2>Limitation of liability</h2>
+    <p>
+      To the fullest extent permitted by law, Password Generator shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of the Service.
+    </p>
+
+    <h2>Changes to terms</h2>
+    <p>
+      We may update these Terms of Service at any time. Your continued use of the Service after changes are posted constitutes acceptance of the revised terms.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      If you have questions about these Terms of Service, please visit our <a href="/contact/">Contact page</a>.
+    </p>
+  </div>
+</ToolLayout>

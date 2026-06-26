@@ -1,0 +1,73 @@
+---
+import Layout from '../../components/Layout.astro';
+
+const title = 'Blog — Password Generator Guides';
+const description = 'Read guides and articles about password security, password managers, and how to protect your online accounts.';
+
+const posts = [
+  {
+    title: 'How to Create a Strong Password: A Complete Guide',
+    description: 'Learn how to create strong passwords that resist brute-force attacks, phishing, and data breaches.',
+    href: '/blog/how-to-create-a-strong-password/',
+  },
+  {
+    title: 'Password Manager Buying Guide',
+    description: 'Compare password managers, features, pricing, and security models for personal or business use.',
+    href: '/blog/password-manager-buying-guide/',
+  },
+  {
+    title: 'What Makes a Password Secure?',
+    description: 'Understand entropy, length, and randomness and how they protect your accounts.',
+    href: '/blog/what-makes-a-password-secure/',
+  },
+  {
+    title: 'Common Password Mistakes and How to Fix Them',
+    description: 'Discover the most common password mistakes and learn simple fixes to improve your security.',
+    href: '/blog/common-password-mistakes/',
+  },
+  {
+    title: 'Password vs Passphrase: Which Should You Use?',
+    description: 'Compare passwords and passphrases and learn when to use each for maximum security.',
+    href: '/blog/password-vs-passphrase/',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: title,
+  description,
+  url: `${Astro.site?.toString().replace(/\/$/, '') ?? 'https://passwordgenerator.example.com'}/blog/`,
+  blogPost: posts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    url: post.href,
+  })),
+};
+---
+
+<Layout title={title} description={description} jsonLd={jsonLd}>
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">Password Generator Blog</h1>
+      <p class="mt-3 text-lg text-slate-600 dark:text-slate-400">{description}</p>
+    </header>
+
+    <ul class="space-y-6">
+      {
+        posts.map((post) => (
+          <li>
+            <a
+              href={post.href}
+              class="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-300 transition-all dark:border-slate-800 dark:bg-slate-900 dark:hover:border-primary-700"
+            >
+              <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-100">{post.title}</h2>
+              <p class="mt-2 text-slate-600 dark:text-slate-400">{post.description}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

@@ -1,0 +1,113 @@
+---
+import ToolLayout from '../../components/ToolLayout.astro';
+import PasswordTool from '../../components/PasswordTool.astro';
+import AdSense from '../../components/AdSense.astro';
+import AffiliateLink from '../../components/AffiliateLink.astro';
+
+const title = 'Passphrase Generator — Secure Multi-Word Passphrases';
+const description = 'Generate strong, easy-to-type multi-word passphrases. Perfect for password managers, master passwords, and accounts you log into frequently.';
+const canonical = `${Astro.site?.toString().replace(/\/$/, '') ?? 'https://passwordgenerator.example.com'}/tools/passphrase-generator/`;
+const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT ?? 'ca-pub-XXXXXXXXXXXXXXXX';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Passphrase Generator',
+  applicationCategory: 'SecurityApplication',
+  operatingSystem: 'Any',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  description,
+  url: canonical,
+};
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is a passphrase?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A passphrase is a sequence of words used as a password. Because it is longer than a typical password, it can be more secure while remaining easier to remember and type.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How many words should a passphrase have?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A secure passphrase should have at least five or six randomly chosen words. Each additional word exponentially increases the difficulty of guessing it.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I use spaces in my passphrase?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Spaces are fine if the website accepts them, but many sites do not. You can use dashes, underscores, or symbols instead to separate words.',
+      },
+    },
+  ],
+};
+---
+
+<ToolLayout title={title} description={description} canonical={canonical} jsonLd={[jsonLd, faqJsonLd]}>
+  <AdSense client={adsenseClient} adSlot="3333333333" format="horizontal" className="mb-8" />
+
+  <section class="prose prose-slate max-w-none mb-8">
+    <p>
+      A <strong>passphrase</strong> is one of the best-kept secrets in password security. Instead of relying on a short, complex jumble of characters, a passphrase uses a longer sequence of random words. The extra length makes it far more resistant to brute-force attacks, while the word structure makes it easier for humans to remember and type accurately.
+    </p>
+    <p>
+      Security researchers have long recommended passphrases for high-value accounts. The famous XKCD comic "Password Strength" illustrated how a four-word passphrase like <code>correct horse battery staple</code> can be both easier to remember and harder to crack than a shorter, symbol-heavy password. While that exact phrase should never be reused, the principle remains sound: random words plus length beat complexity alone.
+    </p>
+    <p>
+      Our standard password generator creates cryptographically secure random character strings. To turn its output into a passphrase-style credential, generate several short fragments and insert them between unrelated words. Alternatively, use the tool to generate a 16–20 character base and mentally split it into chunks separated by memorable symbols. The result is a hybrid passphrase that resists dictionary attacks while staying typable.
+    </p>
+    <h3>Why passphrases work</h3>
+    <p>
+      Every character in a password adds entropy, but every word in a passphrase adds far more. A five-word passphrase drawn from a list of 7,000 common words has roughly 64 bits of entropy. A six-word passphrase pushes that above 76 bits. To reach the same security with random characters, you would need a string that is extremely difficult to memorize.
+    </p>
+  </section>
+
+  <PasswordTool>
+    <div slot="after-output" class="rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900">
+      <h2 class="text-lg font-semibold text-slate-900 mb-3 dark:text-slate-100">Store your passphrases securely</h2>
+      <p class="text-slate-600 mb-4 dark:text-slate-400">
+        A password manager lets you use unique passphrases everywhere without memorizing them all.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <AffiliateLink href="https://1password.com/" label="Try 1Password" />
+        <AffiliateLink href="https://bitwarden.com/" label="Try Bitwarden" />
+      </div>
+    </div>
+  </PasswordTool>
+
+  <AdSense client={adsenseClient} adSlot="4444444444" format="rectangle" className="mt-8" />
+
+  <section class="mt-12 prose prose-slate max-w-none">
+    <h2>Passphrase best practices</h2>
+    <ul>
+      <li>Use at least five or six unrelated words.</li>
+      <li>Separate words with symbols or numbers, not just spaces.</li>
+      <li>Avoid famous quotes, lyrics, or idioms.</li>
+      <li>Use a passphrase as a master password for your password manager.</li>
+      <li>Never reuse a passphrase across multiple accounts.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <h3>What is a passphrase?</h3>
+    <p>A passphrase is a sequence of words used as a password. Because it is longer than a typical password, it can be more secure while remaining easier to remember and type.</p>
+
+    <h3>How many words should a passphrase have?</h3>
+    <p>A secure passphrase should have at least five or six randomly chosen words. Each additional word exponentially increases the difficulty of guessing it.</p>
+
+    <h3>Should I use spaces in my passphrase?</h3>
+    <p>Spaces are fine if the website accepts them, but many sites do not. You can use dashes, underscores, or symbols instead to separate words.</p>
+  </section>
+</ToolLayout>

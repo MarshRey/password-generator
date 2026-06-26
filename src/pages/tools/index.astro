@@ -2,7 +2,7 @@
 import ToolLayout from '../../components/ToolLayout.astro';
 
 const title = 'Tools — Password Generator';
-const description = 'Browse free password tools. Generate strong, random, and secure passwords instantly.';
+const description = 'Browse free password tools. Generate strong, random, secure, memorable, and temporary passwords instantly.';
 
 const tools = [
   {
@@ -25,6 +25,31 @@ const tools = [
     description: 'Generate passwords locally with no server requests or tracking.',
     href: '/tools/secure-password-generator/',
   },
+  {
+    title: 'Memorable Password Generator',
+    description: 'Build strong, easy-to-remember passwords inspired by diceware-style word combinations.',
+    href: '/tools/memorable-password-generator/',
+  },
+  {
+    title: 'Passphrase Generator',
+    description: 'Create multi-word passphrases that balance high entropy with easy typing.',
+    href: '/tools/passphrase-generator/',
+  },
+  {
+    title: 'WiFi Password Generator',
+    description: 'Generate long router and guest network passwords for WPA2 and WPA3.',
+    href: '/tools/wifi-password-generator/',
+  },
+  {
+    title: 'Bulk Password Generator',
+    description: 'Create many unique passwords at once for IT teams and onboarding.',
+    href: '/tools/bulk-password-generator/',
+  },
+  {
+    title: 'Temporary Password Generator',
+    description: 'Generate one-time and shared credentials for short-term access.',
+    href: '/tools/temporary-password-generator/',
+  },
 ];
 
 const jsonLd = {
@@ -41,7 +66,7 @@ const jsonLd = {
 ---
 
 <ToolLayout title={title} description={description} jsonLd={jsonLd}>
-  <p class="text-slate-600 mb-8">
+  <p class="text-slate-600 dark:text-slate-400 mb-8">
     All tools run in your browser. No passwords are sent to or stored on our servers.
   </p>
 
@@ -51,10 +76,10 @@ const jsonLd = {
         <li>
           <a
             href={tool.href}
-            class="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-300 transition-all"
+            class="block rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-primary-300 transition-all dark:border-slate-800 dark:bg-slate-900 dark:hover:border-primary-700"
           >
-            <h2 class="text-lg font-semibold text-slate-900">{tool.title}</h2>
-            <p class="mt-2 text-slate-600">{tool.description}</p>
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">{tool.title}</h2>
+            <p class="mt-2 text-slate-600 dark:text-slate-400">{tool.description}</p>
           </a>
         </li>
       ))

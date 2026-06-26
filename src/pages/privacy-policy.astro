@@ -1,0 +1,71 @@
+---
+import ToolLayout from '../components/ToolLayout.astro';
+
+const title = 'Privacy Policy — Password Generator';
+const description = 'Read the Privacy Policy for Password Generator. Learn how we handle your data, cookies, analytics, and advertising partners.';
+const canonical = `${Astro.site?.toString().replace(/\/$/, '') ?? 'https://passwordgenerator.example.com'}/privacy-policy/`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: canonical,
+};
+---
+
+<ToolLayout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <div class="prose prose-slate max-w-none">
+    <p class="text-sm text-slate-500 dark:text-slate-500">Last updated: {new Date().toISOString().slice(0, 10)}</p>
+
+    <h2>Introduction</h2>
+    <p>
+      This Privacy Policy explains how Password Generator (“we,” “us,” or “our”) collects, uses, and protects your information when you use our website at passwordgenerator.example.com. We are committed to protecting your privacy and being transparent about our practices.
+    </p>
+
+    <h2>No passwords are stored</h2>
+    <p>
+      All passwords generated on this site are created locally in your browser. They are never sent to our servers, logged, or stored by us in any way. Once you close or refresh the page, the generated password is no longer accessible unless you have copied or saved it yourself.
+    </p>
+
+    <h2>Cookies and localStorage</h2>
+    <p>
+      We use your browser's localStorage to remember your theme preference (light or dark mode). This is stored only on your device and is not transmitted to us. We do not use cookies to track you across sessions or across other websites.
+    </p>
+
+    <h2>Analytics</h2>
+    <p>
+      We may use Google Analytics 4 (GA4) to understand how visitors interact with our site. This helps us improve performance and content. GA4 may collect information such as your approximate location, device type, browser type, and pages visited. You can learn more about GA4 privacy practices on the <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google Privacy & Terms</a> page.
+    </p>
+
+    <h2>Advertising</h2>
+    <p>
+      We may display advertisements through Google AdSense. AdSense may use cookies and similar technologies to serve personalized or non-personalized ads based on your visit to this and other websites. You can manage your ad preferences through <a href="https://adssettings.google.com/" rel="noopener" target="_blank">Google Ads Settings</a>.
+    </p>
+
+    <h2>Third-party services</h2>
+    <p>
+      This site is hosted on Vercel. Vercel may process standard server logs, such as IP addresses and request timestamps, for the purpose of delivering content and maintaining service reliability. For more information, please review the <a href="https://vercel.com/legal/privacy-policy" rel="noopener" target="_blank">Vercel Privacy Policy</a>.
+    </p>
+
+    <h2>Affiliate links</h2>
+    <p>
+      Some pages contain affiliate links to password managers and security products. If you click an affiliate link and make a purchase, we may earn a commission at no extra cost to you. These third-party sites have their own privacy policies, and we encourage you to review them.
+    </p>
+
+    <h2>Children's privacy</h2>
+    <p>
+      Our website is not directed at children under the age of 13. We do not knowingly collect personal information from children.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date.
+    </p>
+
+    <h2>Contact us</h2>
+    <p>
+      If you have questions about this Privacy Policy, please visit our <a href="/contact/">Contact page</a>.
+    </p>
+  </div>
+</ToolLayout>

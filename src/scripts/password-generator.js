@@ -59,10 +59,10 @@
   }
 
   function getStrengthLabel(entropy) {
-    if (entropy >= 120) return { label: 'Strong', color: 'text-emerald-600', bg: 'bg-emerald-500', width: '100%' };
-    if (entropy >= 80) return { label: 'Good', color: 'text-blue-600', bg: 'bg-blue-500', width: '75%' };
-    if (entropy >= 50) return { label: 'Fair', color: 'text-amber-600', bg: 'bg-amber-500', width: '50%' };
-    return { label: 'Weak', color: 'text-red-600', bg: 'bg-red-500', width: '25%' };
+    if (entropy >= 120) return { label: 'Strong', color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-500', width: '100%' };
+    if (entropy >= 80) return { label: 'Good', color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-500', width: '75%' };
+    if (entropy >= 50) return { label: 'Fair', color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-500', width: '50%' };
+    return { label: 'Weak', color: 'text-red-600 dark:text-red-400', bg: 'bg-red-500', width: '25%' };
   }
 
   function initPasswordGenerator() {
