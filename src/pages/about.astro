@@ -1,0 +1,52 @@
+---
+import ToolLayout from '../components/ToolLayout.astro';
+import AffiliateLink from '../components/AffiliateLink.astro';
+
+const title = 'About — Password Generator';
+const description = 'Learn more about Password Generator, a free and privacy-friendly tool for creating strong, random, and secure passwords.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: title,
+  description,
+  url: Astro.url.toString(),
+};
+---
+
+<ToolLayout title={title} description={description} jsonLd={jsonLd}>
+  <div class="prose prose-slate max-w-none">
+    <p>
+      Password Generator is a fast, free, and privacy-friendly online utility. It creates strong, random, and secure passwords
+      right inside your browser using modern cryptographic randomness.
+    </p>
+
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">How it works</h2>
+    <p>
+      The tool uses your browser's <code>window.crypto.getRandomValues</code> API to pick characters from your selected
+      character sets. Passwords are generated locally and are never sent to or stored on our servers.
+    </p>
+
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Why we built this</h2>
+    <p>
+      Many password generators are bloated with trackers, ads, and unnecessary scripts. We wanted a clean, fast, and
+      trustworthy alternative that respects your privacy.
+    </p>
+
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Affiliate disclosure</h2>
+    <p>
+      Some links on this site are affiliate links. We only recommend products and services we believe are relevant and
+      useful for password security. We may earn a commission if you sign up through these links, at no extra cost to you.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 not-prose">
+      <AffiliateLink href="https://1password.com/" label="1Password" />
+      <AffiliateLink href="https://bitwarden.com/" label="Bitwarden" />
+      <AffiliateLink href="https://www.lastpass.com/" label="LastPass" />
+    </div>
+
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Get in touch</h2>
+    <p>
+      Have a suggestion or found a bug? Visit the project repository or reach out through the contact link on our homepage.
+    </p>
+  </div>
+</ToolLayout>
