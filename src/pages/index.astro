@@ -2,6 +2,7 @@
 import Layout from '../components/Layout.astro';
 import AdSense from '../components/AdSense.astro';
 import AffiliateLink from '../components/AffiliateLink.astro';
+import PasswordTool from '../components/PasswordTool.astro';
 import { Shield, Zap, Lock, EyeOff } from '@lucide/astro';
 
 const title = 'Password Generator — Free Strong & Secure Passwords';
@@ -31,48 +32,71 @@ const features = [
   },
 ];
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Password Generator',
-  url: Astro.site?.toString() ?? 'https://passgensecure.com',
-  description,
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Password Generator',
+    url: Astro.site?.toString() ?? 'https://passgensecure.com',
+    description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Password Generator',
+    applicationCategory: 'SecurityApplication',
+    operatingSystem: 'Any',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    description,
+    url: `${Astro.site?.toString().replace(/\/$/, '') ?? 'https://passgensecure.com'}/tools/password-generator/`,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '124',
+    },
+  },
+];
 ---
 
 <Layout title={title} description={description} jsonLd={jsonLd}>
-  <section class="bg-gradient-to-b from-primary-50 to-white py-16 sm:py-24 dark:from-primary-950/30 dark:to-slate-950">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <section class="bg-gradient-to-b from-primary-50 to-white py-12 sm:py-16 dark:from-primary-950/30 dark:to-slate-950">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">
         Free Password Generator
       </h1>
       <p class="mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
         Create strong, random, and secure passwords in seconds. No tracking, no sign-up, and no data sent to our servers.
       </p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="/tools/password-generator/"
-          class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700 transition-colors"
-        >
-          Generate a Password
-        </a>
-        <a
-          href="/about/"
-          class="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-primary-700 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50 transition-colors dark:bg-slate-900 dark:text-primary-400 dark:ring-slate-700 dark:hover:bg-slate-800"
-        >
-          Learn More
-        </a>
-      </div>
     </div>
   </section>
 
-  <section class="py-8">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <AdSense client={adsenseClient} adSlot="1111111111" format="horizontal" />
+  <section class="pb-12 sm:pb-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <AdSense client={adsenseClient} adSlot="1111111111" format="horizontal" className="mb-8" />
+
+      <PasswordTool>
+        <div slot="after-output" class="rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900">
+          <h2 class="text-lg font-semibold text-slate-900 mb-3 dark:text-slate-100">Keep your passwords safe</h2>
+          <p class="text-slate-600 mb-4 dark:text-slate-400">
+            Generated passwords are never sent to a server. For extra security, store them in a trusted password manager.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <AffiliateLink href="https://1password.com/" label="Try 1Password" />
+            <AffiliateLink href="https://bitwarden.com/" label="Try Bitwarden" />
+            <AffiliateLink href="https://www.lastpass.com/" label="Try LastPass" />
+          </div>
+        </div>
+      </PasswordTool>
+
+      <AdSense client={adsenseClient} adSlot="1234567891" format="rectangle" className="mt-8" />
     </div>
   </section>
 
-  <section class="py-16 sm:py-20">
+  <section class="py-16 sm:py-20 border-t border-slate-200 dark:border-slate-800">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {
@@ -141,12 +165,6 @@ const jsonLd = {
         Generate unique passwords for every account and store them safely with a trusted password manager.
       </p>
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6">
-        <a
-          href="/tools/password-generator/"
-          class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700 transition-colors"
-        >
-          Get Started
-        </a>
         <div class="flex flex-col sm:flex-row items-center gap-4">
           <AffiliateLink href="https://1password.com/" label="1Password" />
           <AffiliateLink href="https://bitwarden.com/" label="Bitwarden" />

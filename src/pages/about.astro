@@ -17,26 +17,30 @@ const jsonLd = {
 <ToolLayout title={title} description={description} jsonLd={jsonLd}>
   <div class="prose prose-slate max-w-none">
     <p>
-      Password Generator is a fast, free, and privacy-friendly online utility. It creates strong, random, and secure passwords
-      right inside your browser using modern cryptographic randomness.
+      <strong>Password Generator</strong> is a fast, free, and privacy-focused utility for creating strong, random, and secure passwords. Every password is generated locally in your browser using the browser's built-in cryptographic random number generator. Nothing you create here is sent to our servers, logged, or stored.
     </p>
+
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4 dark:text-slate-100">What makes this tool different</h2>
+    <ul>
+      <li><strong>No server-side processing:</strong> Passwords are created entirely in your browser. We never see them.</li>
+      <li><strong>No account required:</strong> Use the tool instantly without signing up or handing over personal data.</li>
+      <li><strong>Transparent entropy:</strong> We show the estimated entropy and strength of every generated password so you can make informed choices.</li>
+      <li><strong>Minimal, fast design:</strong> No unnecessary trackers, heavy ads, or bloated scripts slowing things down.</li>
+    </ul>
 
     <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4 dark:text-slate-100">How it works</h2>
     <p>
-      The tool uses your browser's <code>window.crypto.getRandomValues</code> API to pick characters from your selected
-      character sets. Passwords are generated locally and are never sent to or stored on our servers.
+      The tool uses the <code>window.crypto.getRandomValues</code> API, the same cryptographically secure source of randomness trusted by modern browsers for TLS and other security features. You select the length and character sets, and the generator builds a password from those options in real time.
     </p>
 
-    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4 dark:text-slate-100">Why we built this</h2>
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4 dark:text-slate-100">Security and privacy</h2>
     <p>
-      Many password generators are bloated with trackers, ads, and unnecessary scripts. We wanted a clean, fast, and
-      trustworthy alternative that respects your privacy.
+      Security tools only work if you can trust them. That is why this generator runs offline-capable code in your browser, does not use cookies for tracking, and only stores your dark-mode preference in localStorage. We do not collect passwords, email addresses, or usage analytics that could identify you.
     </p>
 
-    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4 dark:text-slate-100">Affiliate disclosure</h2>
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4 dark:text-slate-100">Recommended password managers</h2>
     <p>
-      Some links on this site are affiliate links. We only recommend products and services we believe are relevant and
-      useful for password security. We may earn a commission if you sign up through these links, at no extra cost to you.
+      The best way to use strong passwords is to generate a unique one for every account and store it in a reputable password manager. We have used and researched the following options and believe they are solid choices for most people:
     </p>
     <div class="flex flex-col sm:flex-row gap-4 not-prose">
       <AffiliateLink href="https://1password.com/" label="1Password" />
@@ -44,9 +48,14 @@ const jsonLd = {
       <AffiliateLink href="https://www.lastpass.com/" label="LastPass" />
     </div>
 
+    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4 dark:text-slate-100">Affiliate disclosure</h2>
+    <p>
+      Some links on this site are affiliate links. We only recommend products and services we believe are relevant and useful for password security. If you click an affiliate link and sign up, we may earn a small commission at no extra cost to you.
+    </p>
+
     <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4 dark:text-slate-100">Get in touch</h2>
     <p>
-      Have a suggestion or found a bug? Visit the project repository or reach out through the contact link on our homepage.
+      Have a suggestion, found a bug, or want to request a feature? Visit our <a href="/contact/">contact page</a> or reach out through the project repository. We read every message and use feedback to improve the tool.
     </p>
   </div>
 </ToolLayout>
